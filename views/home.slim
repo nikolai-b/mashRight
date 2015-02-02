@@ -1,0 +1,50 @@
+- if @rant
+  .col-md-3
+  .col-md-6
+    == partial 'rant'
+  br
+br
+
+form action='/rant' method='post'
+  .col-md-4
+    .btn-group data-toggle="buttons"
+      - SoundBite::ONE.each do |sound_bite|
+        br
+        label.btn.btn-primary
+          input name='one' id=sound_bite type="radio" value=sound_bite /
+          = sound_bite
+        div
+          br
+
+  .col-md-4
+    .btn-group data-toggle="buttons"
+      - SoundBite::TWO.each do |sound_bite|
+        br
+        label.btn.btn-primary
+          input name='two' id=sound_bite type="radio" value=sound_bite /
+          = sound_bite
+        div
+          br
+
+  .col-md-4
+    .btn-group data-toggle="buttons"
+      - SoundBite::THREE.each do |sound_bite|
+        br
+        label.btn.btn-primary
+          input name='three' id=sound_bite type="radio" value=sound_bite /
+          = sound_bite
+        div
+          br
+
+  br
+  .col-md-4
+  .col-md-6
+    br
+    input.control-group.btn.primary type='submit' value='Delibrate Rant!'
+
+br
+.col-md-4
+.col-md-6
+  br
+  a.btn.btn-default.primary href='./frothing' Frothing Rant!
+
