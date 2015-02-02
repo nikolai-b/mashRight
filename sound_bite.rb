@@ -41,4 +41,19 @@ module SoundBite
   def self.generated_bite
     "#{ONE.sample} #{TWO.sample} #{THREE.sample}"
   end
+
+  def self.save_audio
+    SoundBite::ONE.each do |one|
+      SoundBite::TWO.each do |two|
+        SoundBite::THREE.each do |three|
+          rant = "#{one} #{two} #{three}"
+          unless File.file?(File.join('public', 'audio', rant + '.mp3'))
+            rant.to_file 'en', "public/audio/#{rant}.mp3"
+            sleep(1) #google are likely to rate limit
+          end
+        end
+      end
+    end
+  end
+
 end
