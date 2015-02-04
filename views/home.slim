@@ -28,9 +28,14 @@ form action='/rant' method='post'
     .btn-group data-toggle="buttons"
       - SoundBite::ONE.each do |sound_bite|
         br
-        label.btn.btn-primary
-          input name='one' id=sound_bite type="radio" value=sound_bite /
-          = sound_bite
+        - if @rant.start_with?(sound_bite)
+          label.btn.btn-primary.active
+            input name='one' id=sound_bite type="radio" value=sound_bite /
+            = sound_bite
+        - else
+          label.btn.btn-primary
+            input name='one' id=sound_bite type="radio" value=sound_bite /
+            = sound_bite
         div
           br
 
@@ -38,9 +43,14 @@ form action='/rant' method='post'
     .btn-group data-toggle="buttons"
       - SoundBite::TWO.each do |sound_bite|
         br
-        label.btn.btn-primary
-          input name='two' id=sound_bite type="radio" value=sound_bite /
-          = sound_bite
+        - if @rant.include?(sound_bite)
+          label.btn.btn-primary.active
+            input name='two' id=sound_bite type="radio" value=sound_bite /
+            = sound_bite
+        - else
+          label.btn.btn-primary
+            input name='two' id=sound_bite type="radio" value=sound_bite /
+            = sound_bite
         div
           br
 
@@ -48,9 +58,14 @@ form action='/rant' method='post'
     .btn-group data-toggle="buttons"
       - SoundBite::THREE.each do |sound_bite|
         br
-        label.btn.btn-primary
-          input name='three' id=sound_bite type="radio" value=sound_bite /
-          = sound_bite
+        - if @rant.end_with?(sound_bite)
+          label.btn.btn-primary.active
+            input name='three' id=sound_bite type="radio" value=sound_bite /
+            = sound_bite
+        - else
+          label.btn.btn-primary
+            input name='three' id=sound_bite type="radio" value=sound_bite /
+            = sound_bite
         div
           br
 

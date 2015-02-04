@@ -39,7 +39,7 @@ module SoundBite
   ].freeze
 
   def self.generated_bite
-    "#{ONE.sample} #{TWO.sample} #{THREE.sample}"
+    "#{ONE.shuffle.sample} #{TWO.shuffle.sample} #{THREE.shuffle.sample}"
   end
 
   def self.save_audio
