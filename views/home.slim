@@ -1,19 +1,30 @@
+.col-md-2
+.col-md-8
+  .well.well-sm
+    .text-center
+      .h3
+        = @rant
+.col-md-2
+
+
 .col-md-4
+.col-md-8
+  audio controls="" autoplay=""
+    source src="audio/#{@rant}.mp3" type="audio/mpeg"
+  div
+    br
+  br
+
+.col-md-5
 .col-md-6
-  a.btn.btn-default.primary href='./frothing' Frothing Rant!
+  a.btn.btn-default.primary href='./' Another Frothing Rant!
   div
   br
 br
-
-- if @rant
-  .col-md-3
-  .col-md-6
-    == partial 'rant'
-  br
 br
 
 form action='/rant' method='post'
-  .col-md-4
+  .col-md-5
     .btn-group data-toggle="buttons"
       - SoundBite::ONE.each do |sound_bite|
         br
@@ -23,7 +34,7 @@ form action='/rant' method='post'
         div
           br
 
-  .col-md-4
+  .col-md-5
     .btn-group data-toggle="buttons"
       - SoundBite::TWO.each do |sound_bite|
         br
@@ -33,7 +44,7 @@ form action='/rant' method='post'
         div
           br
 
-  .col-md-4
+  .col-md-2
     .btn-group data-toggle="buttons"
       - SoundBite::THREE.each do |sound_bite|
         br
@@ -44,9 +55,7 @@ form action='/rant' method='post'
           br
 
   br
-  .col-md-4
+  .col-md-5
   .col-md-6
     br
     input.control-group.btn.primary type='submit' value='Deliberate Rant!'
-
-

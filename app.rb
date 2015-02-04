@@ -11,6 +11,8 @@ configure do
 end
 
 get '/' do
+  @rant = SoundBite::generated_bite
+  @rant.to_file 'en', "./public/audio/#{@rant}.mp3" unless File.file?(File.join('public', 'audio', @rant + '.mp3'))
   slim :home
 end
 
@@ -22,10 +24,3 @@ post '/rant' do
   @rant.to_file 'en', "./public/audio/#{@rant}.mp3" unless File.file?(File.join('public', 'audio', @rant + '.mp3'))
   slim :home
 end
-
-get '/frothing' do
-  @rant = SoundBite::generated_bite
-  @rant.to_file 'en', "./public/audio/#{@rant}.mp3" unless File.file?(File.join('public', 'audio', @rant + '.mp3'))
-  slim :home
-end
-
